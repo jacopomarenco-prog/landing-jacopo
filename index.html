@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Dott. Jacopo Marenco — Torna in forma senza sentirti a dieta</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+html { scroll-behavior:smooth; }
+body {
+  font-family:'Sora',sans-serif;
+  background:var(--black);
+  color:var(--white);
+  overflow-x:hidden;
+  font-size:16px;
+  line-height:1.6;
+}
+
+/* ─── VARS ─── */
+:root {
+  --black:#0a0a0f;
+  --white:#f0eeff;
+  --purple-deep:#1a0a3d;
+  --purple-mid:#3d1d8a;
+  --purple-bg:#1c0f3a;
+  --purple-section:#210d4a;
+  --purple-card:#160933;
+  --violet:#7c3aed;
+  --violet-bright:#9b59f5;
+  --blue-bright:#4facff;
+  --fuchsia:#e040fb;
+  --pink:#e8536a;
+  --pink-cta:#d946c0;
+  --grad-text:linear-gradient(90deg,#4facff,#9b59f5,#e040fb);
+  --wa:#25D366;
+  --card:#12082a;
+  --border:rgba(155,89,245,0.18);
+  --muted:rgba(220,210,255,0.55);
+  --red:#e05555;
+}
+
+/* ─── NAV ─── */
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:99;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 20px;
+  background:rgba(12,12,12,0.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:18px; letter-spacing:1.5px; color:var(--white);
+}
+.nav-logo span { color:var(--green-bright); }
+.nav-wa {
+  display:flex; align-items:center; gap:7px;
+  background:var(--wa); color:#fff;
+  font-size:12px; font-weight:700;
+  padding:9px 16px; border-radius:50px;
+  text-decoration:none;
+  box-shadow:0 4px 16px rgba(37,211,102,0.3);
+}
+.nav-wa svg { width:14px; height:14px; fill:#fff; }
+
+/* ─── HERO ─── */
+#hero {
+  padding-top:64px;
+  min-height:100svh;
+  display:flex; flex-direction:column;
+  position:relative; overflow:hidden;
+}
+.hero-photo-wrap {
+  position:relative; width:100%;
+  height:56vw; max-height:320px;
+  overflow:hidden; flex-shrink:0;
+}
+.hero-photo {
+  width:100%; height:100%;
+  object-fit:cover; object-position:top center;
+  display:block;
+}
+.hero-photo-gradient {
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom, rgba(12,12,12,0.1) 0%, rgba(12,12,12,0.95) 100%);
+}
+.hero-body {
+  padding:28px 22px 36px;
+  flex:1; display:flex; flex-direction:column;
+}
+.hero-pill {
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(78,203,130,0.12);
+  border:1px solid rgba(78,203,130,0.25);
+  color:var(--green-bright);
+  font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+  padding:6px 14px; border-radius:50px;
+  margin-bottom:20px; width:fit-content;
+}
+.hero-pill-dot { width:6px; height:6px; background:var(--green-bright); border-radius:50%; animation:blink 1.8s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.hero-h1 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(48px,13vw,72px);
+  line-height:0.92; letter-spacing:0.5px;
+  margin-bottom:20px;
+}
+.hero-h1 .line2 { color:var(--green-bright); display:block; }
+.hero-h1 .line3 { color:var(--warm); display:block; }
+
+.hero-sub {
+  font-size:16px; line-height:1.65;
+  color:var(--muted); margin-bottom:32px;
+  max-width:380px;
+}
+.hero-sub strong { color:var(--white); }
+
+.btn-wa-hero {
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  background:var(--wa); color:#fff;
+  font-size:16px; font-weight:700;
+  padding:18px 28px; border-radius:16px;
+  text-decoration:none; width:100%;
+  box-shadow:0 8px 28px rgba(37,211,102,0.35);
+  transition:transform .15s, box-shadow .15s;
+  margin-bottom:12px;
+}
+.btn-wa-hero:active { transform:scale(0.97); }
+.btn-wa-hero svg { width:22px; height:22px; fill:#fff; flex-shrink:0; }
+.hero-cta-sub {
+  text-align:center; font-size:12px; color:rgba(240,237,230,0.35);
+  margin-bottom:28px;
+}
+.hero-stats {
+  display:grid; grid-template-columns:1fr 1fr 1fr;
+  gap:12px; margin-top:auto;
+}
+.hstat {
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px; padding:16px 12px; text-align:center;
+}
+.hstat-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px; color:var(--green-bright); display:block;
+}
+.hstat-label { font-size:10px; color:var(--muted); font-weight:500; letter-spacing:0.5px; line-height:1.3; }
+
+/* ─── SECTION COMMONS ─── */
+.sec { padding:72px 20px; }
+.sec-label {
+  font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:12px; display:block;
+}
+.sec-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(38px,10vw,56px);
+  line-height:0.95; letter-spacing:0.5px;
+  margin-bottom:16px;
+}
+.sec-sub { font-size:16px; color:var(--muted); line-height:1.6; margin-bottom:40px; }
+
+/* ─── PAIN ─── */
+#pain { background:#0e0e0e; }
+#pain .sec-label { color:var(--red); }
+.pain-intro { font-size:17px; line-height:1.65; color:var(--muted); margin-bottom:32px; }
+.pain-intro strong { color:var(--white); }
+.pain-cards { display:flex; flex-direction:column; gap:14px; margin-bottom:36px; }
+.pain-card {
+  background:var(--card);
+  border:1px solid rgba(224,85,85,0.15);
+  border-left:3px solid var(--red);
+  border-radius:14px; padding:20px 18px;
+  display:flex; align-items:flex-start; gap:14px;
+}
+.pain-emoji { font-size:24px; flex-shrink:0; margin-top:1px; }
+.pain-text { font-size:15px; line-height:1.55; color:rgba(240,237,230,0.8); }
+.pain-bridge {
+  background:linear-gradient(135deg,rgba(30,77,51,0.5),rgba(45,122,79,0.3));
+  border:1px solid rgba(78,203,130,0.2);
+  border-radius:18px; padding:28px 22px; text-align:center;
+}
+.pain-bridge h3 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:28px; letter-spacing:0.5px; margin-bottom:10px;
+}
+.pain-bridge p { font-size:15px; color:var(--muted); line-height:1.6; }
+.pain-bridge strong { color:var(--green-bright); }
+
+/* ─── BENEFITS ─── */
+#benefits { background:#0c1a11; }
+#benefits .sec-label { color:var(--green-bright); }
+.benefits-cards { display:flex; flex-direction:column; gap:16px; }
+.benefit-card {
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(78,203,130,0.12);
+  border-radius:18px; padding:24px 20px;
+  position:relative; overflow:hidden;
+  transition:border-color .2s;
+}
+.benefit-card::after {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg,var(--green-bright),var(--warm));
+}
+.benefit-head { display:flex; align-items:center; gap:12px; margin-bottom:10px; }
+.benefit-icon { font-size:28px; }
+.benefit-title { font-size:17px; font-weight:700; }
+.benefit-body { font-size:14px; line-height:1.6; color:var(--muted); }
+
+/* ─── TRANSFORMATION ─── */
+#transform { background:#0e0e0e; }
+#transform .sec-label { color:var(--warm); }
+.before-after {
+  display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:32px;
+}
+.ba-col { border-radius:16px; padding:22px 18px; }
+.ba-before {
+  background:rgba(224,85,85,0.07);
+  border:1px solid rgba(224,85,85,0.2);
+}
+.ba-after {
+  background:rgba(78,203,130,0.07);
+  border:1px solid rgba(78,203,130,0.2);
+}
+.ba-label {
+  font-size:11px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase;
+  margin-bottom:14px; display:block;
+}
+.ba-before .ba-label { color:var(--red); }
+.ba-after .ba-label { color:var(--green-bright); }
+.ba-list { display:flex; flex-direction:column; gap:10px; }
+.ba-item { font-size:13px; line-height:1.4; color:rgba(240,237,230,0.75); display:flex; gap:8px; }
+.ba-item-icon { flex-shrink:0; }
+.transform-quote {
+  background:var(--warm); border-radius:18px; padding:28px 22px; text-align:center;
+}
+.transform-quote p {
+  font-size:18px; font-weight:600; line-height:1.5; color:var(--black); margin-bottom:8px;
+}
+.transform-quote span { font-size:12px; color:rgba(0,0,0,0.5); font-weight:500; }
+
+/* ─── WHO ─── */
+#who { background:#0c1a11; }
+#who .sec-label { color:var(--green-bright); }
+.who-photo-wrap {
+  position:relative; margin-bottom:28px;
+  border-radius:20px; overflow:hidden;
+}
+.who-photo {
+  width:100%; display:block; border-radius:20px;
+  aspect-ratio:4/3; object-fit:cover; object-position:top center;
+}
+.who-photo-caption {
+  position:absolute; bottom:0; left:0; right:0;
+  background:linear-gradient(to top, rgba(12,12,12,0.95) 0%, transparent 100%);
+  padding:32px 20px 18px;
+}
+.who-photo-caption p { font-size:14px; font-style:italic; color:var(--warm-soft); }
+.who-photo-caption span { font-size:11px; color:var(--muted); }
+.who-text { font-size:15px; line-height:1.75; color:var(--muted); margin-bottom:24px; }
+.who-text strong { color:var(--white); }
+.who-creds { display:flex; flex-direction:column; gap:12px; margin-bottom:32px; }
+.cred-row {
+  display:flex; align-items:center; gap:14px;
+  background:var(--card); border:1px solid var(--border);
+  border-radius:12px; padding:14px 16px;
+}
+.cred-icon { font-size:20px; flex-shrink:0; }
+.cred-title { font-size:14px; font-weight:600; margin-bottom:2px; }
+.cred-sub { font-size:12px; color:var(--muted); }
+
+/* ─── METHOD ─── */
+#method { background:#0e0e0e; }
+#method .sec-label { color:var(--warm); }
+.method-steps { display:flex; flex-direction:column; gap:20px; margin-bottom:36px; }
+.method-step {
+  display:flex; gap:18px; align-items:flex-start;
+}
+.step-num {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:42px; line-height:1; color:rgba(78,203,130,0.2);
+  flex-shrink:0; width:44px; text-align:center;
+}
+.step-content { flex:1; }
+.step-title { font-size:17px; font-weight:700; margin-bottom:6px; }
+.step-body { font-size:14px; color:var(--muted); line-height:1.6; }
+.method-cta-box {
+  background:linear-gradient(135deg,#1a3d2b,#0d2219);
+  border:1px solid rgba(78,203,130,0.2);
+  border-radius:20px; padding:28px 22px; text-align:center;
+}
+.method-cta-box h3 { font-family:'Bebas Neue',sans-serif; font-size:28px; margin-bottom:8px; }
+.method-cta-box p { font-size:14px; color:var(--muted); margin-bottom:22px; line-height:1.5; }
+
+/* ─── FAQ ─── */
+#faq { background:#0c1a11; }
+#faq .sec-label { color:var(--green-bright); }
+.faq-list { display:flex; flex-direction:column; gap:10px; }
+.faq-item {
+  background:var(--card); border:1px solid var(--border);
+  border-radius:14px; overflow:hidden;
+}
+.faq-q {
+  width:100%; background:none; border:none; color:var(--white);
+  font-family:'Sora',sans-serif; font-size:15px; font-weight:600;
+  padding:20px 18px; text-align:left; cursor:pointer;
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+}
+.faq-arr { width:18px; height:18px; flex-shrink:0; transition:transform .25s; opacity:0.45; }
+.faq-item.open .faq-arr { transform:rotate(180deg); opacity:0.8; }
+.faq-a {
+  max-height:0; overflow:hidden;
+  transition:max-height .3s ease, padding .3s;
+  font-size:14px; color:var(--muted); line-height:1.7;
+  padding:0 18px;
+}
+.faq-item.open .faq-a { max-height:300px; padding:0 18px 20px; }
+
+/* ─── FINAL CTA ─── */
+#finalcta { background:#0e0e0e; padding:72px 20px 100px; }
+.finalcta-inner { text-align:center; }
+.finalcta-label {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  color:var(--green-bright); margin-bottom:20px;
+}
+.finalcta-title {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(44px,13vw,68px);
+  line-height:0.92; margin-bottom:16px;
+}
+.finalcta-title span { color:var(--warm); display:block; }
+.finalcta-sub { font-size:16px; color:var(--muted); line-height:1.65; margin-bottom:36px; max-width:380px; margin-left:auto; margin-right:auto; }
+.cta-card {
+  background:linear-gradient(145deg,#1a3d2b,#0f2218);
+  border:1px solid rgba(78,203,130,0.25);
+  border-radius:22px; padding:36px 22px; margin-bottom:20px;
+}
+.cta-free-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(78,203,130,0.12); border:1px solid rgba(78,203,130,0.3);
+  color:var(--green-bright);
+  font-size:11px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  padding:6px 14px; border-radius:50px; margin-bottom:16px;
+}
+.cta-card h2 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:34px; letter-spacing:0.5px; margin-bottom:6px;
+}
+.cta-duration { font-size:13px; color:var(--muted); margin-bottom:14px; }
+.cta-desc { font-size:15px; line-height:1.65; color:rgba(240,237,230,0.65); margin-bottom:28px; }
+.btn-wa-big {
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  background:var(--wa); color:#fff;
+  font-size:17px; font-weight:700;
+  padding:20px; border-radius:16px;
+  text-decoration:none; width:100%;
+  box-shadow:0 8px 28px rgba(37,211,102,0.35);
+  margin-bottom:10px;
+}
+.btn-wa-big svg { width:24px; height:24px; fill:#fff; flex-shrink:0; }
+.btn-wa-big:active { transform:scale(0.97); }
+.wa-note { font-size:12px; color:rgba(240,237,230,0.3); }
+.location-note {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:13px; color:rgba(240,237,230,0.35); margin-top:24px;
+}
+
+/* ─── QUOTE ─── */
+#quote { background:var(--warm); padding:52px 20px; text-align:center; }
+.quote-text {
+  font-size:20px; font-weight:600; line-height:1.5; color:var(--black); margin-bottom:12px;
+  font-style:italic;
+}
+.quote-attr { font-size:12px; font-weight:700; letter-spacing:1px; text-transform:uppercase; color:rgba(0,0,0,0.4); }
+
+/* ─── FOOTER ─── */
+footer { background:#060f08; padding:36px 20px; border-top:1px solid var(--border); }
+.footer-name { font-family:'Bebas Neue',sans-serif; font-size:18px; letter-spacing:1.5px; margin-bottom:6px; }
+.footer-reg { font-size:11px; color:rgba(240,237,230,0.3); margin-bottom:20px; line-height:1.5; }
+.footer-links { display:flex; flex-direction:column; gap:8px; }
+.footer-links a { font-size:13px; color:rgba(240,237,230,0.4); text-decoration:none; }
+.footer-links a:hover { color:var(--green-bright); }
+
+/* ─── FLOATING WA ─── */
+.wa-float {
+  position:fixed; bottom:24px; right:20px; z-index:200;
+  width:58px; height:58px;
+  background:var(--wa); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  text-decoration:none;
+  box-shadow:0 6px 24px rgba(37,211,102,0.4);
+}
+.wa-float svg { width:28px; height:28px; fill:#fff; }
+.wa-pulse {
+  position:absolute; inset:-5px;
+  border-radius:50%; border:2px solid rgba(37,211,102,0.4);
+  animation:wpulse 2.2s infinite;
+}
+@keyframes wpulse {
+  0%{ transform:scale(1); opacity:.7 }
+  70%{ transform:scale(1.45); opacity:0 }
+  100%{ transform:scale(1.45); opacity:0 }
+}
+
+/* ─── SCROLL REVEAL ─── */
+.reveal { opacity:0; transform:translateY(28px); transition:opacity .55s ease, transform .55s ease; }
+.reveal.in { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Dott. <span>Jacopo</span> Marenco</div>
+  <a class="nav-wa" href="https://wa.me/message/JMFTINSRBS3XP1?text=Buongiorno%20Jacopo%2C%20vorrei%20prenotare%20una%20call%20gratuita%20con%20te%20per%20spiegarti%20i%20miei%20obiettivi" target="_blank">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+    Call Gratuita
+  </a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-photo-wrap">
+    <img class="hero-photo" src="/mnt/user-data/uploads/IMG_7749.png" alt="Dott. Jacopo Marenco - Biologo Nutrizionista">
+    <div class="hero-photo-gradient"></div>
+  </div>
+  <div class="hero-body">
+    <div class="hero-pill"><div class="hero-pill-dot"></div> Biologo Nutrizionista · Sanremo</div>
+    <h1 class="hero-h1">
+      TORNA<br>
+      IN FORMA<br>
+      <span class="line2">SENZA</span>
+      <span class="line3">SENTIRTI<br>A DIETA.</span>
+    </h1>
+    <p class="hero-sub">Piani nutrizionali <strong>che funzionano nella vita reale</strong> — senza rinunce inutili, senza sensi di colpa.</p>
+    <a class="btn-wa-hero" href="https://wa.me/message/JMFTINSRBS3XP1?text=Buongiorno%20Jacopo%2C%20vorrei%20prenotare%20una%20call%20gratuita%20con%20te%20per%20spiegarti%20i%20miei%20obiettivi" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Prenota la call gratuita
+    </a>
+    <p class="hero-cta-sub">✓ Gratuita · ✓ Senza impegno · ✓ 20 minuti</p>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-num">100%</span><span class="hstat-label">Piani personalizzati</span></div>
+      <div class="hstat"><span class="hstat-num">0</span><span class="hstat-label">Alimenti proibiti</span></div>
+      <div class="hstat"><span class="hstat-num">∞</span><span class="hstat-label">Supporto WhatsApp</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section id="pain" class="sec">
+  <span class="sec-label reveal" style="color:var(--red)">Sei stanco di...</span>
+  <h2 class="sec-title reveal">TI SUONA FAMILIARE?</h2>
+  <p class="pain-intro reveal">Se hai risposto sì ad almeno una di queste, <strong>non è colpa tua</strong>. È colpa dell'approccio sbagliato.</p>
+  <div class="pain-cards">
+    <div class="pain-card reveal">
+      <span class="pain-emoji">😩</span>
+      <p class="pain-text">Hai provato diete che funzionano 3 settimane… poi torni al punto di partenza.</p>
+    </div>
+    <div class="pain-card reveal">
+      <span class="pain-emoji">🍗</span>
+      <p class="pain-text">Sei stufo di riso, pollo e broccoli. Vuoi mangiare cose vere, non punizioni.</p>
+    </div>
+    <div class="pain-card reveal">
+      <span class="pain-emoji">😰</span>
+      <p class="pain-text">Ogni "sgarro" ti fa sentire in colpa. E questo ciclo ti sta logorando.</p>
+    </div>
+    <div class="pain-card reveal">
+      <span class="pain-emoji">⚖️</span>
+      <p class="pain-text">Il peso fa su e giù come un'altalena e la motivazione è sottozero.</p>
+    </div>
+    <div class="pain-card reveal">
+      <span class="pain-emoji">🕐</span>
+      <p class="pain-text">Non hai tempo per cucinare cose complicate. Il piano deve adattarsi a te.</p>
+    </div>
+  </div>
+  <div class="pain-bridge reveal">
+    <h3>Non hai bisogno di un'altra dieta.</h3>
+    <p>Hai bisogno di un <strong>metodo intelligente</strong> che si adatti alla tua vita — non il contrario.</p>
+  </div>
+</section>
+
+<!-- BENEFITS -->
+<section id="benefits" class="sec">
+  <span class="sec-label reveal">Cosa otterrai</span>
+  <h2 class="sec-title reveal">LA TUA VITA<br>CON IL METODO GIUSTO</h2>
+  <p class="sec-sub reveal">Risultati concreti, che mantieni nel tempo. Perché la vera libertà è non pensarci più.</p>
+  <div class="benefits-cards">
+    <div class="benefit-card reveal">
+      <div class="benefit-head">
+        <span class="benefit-icon">🔥</span>
+        <span class="benefit-title">Perdi peso senza soffrire</span>
+      </div>
+      <p class="benefit-body">Dimagrire non significa privarsi. Il tuo piano includerà i cibi che ami, in modo da poterlo mantenere per sempre — non solo per 3 settimane.</p>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-head">
+        <span class="benefit-icon">⚡</span>
+        <span class="benefit-title">Più energia ogni giorno</span>
+      </div>
+      <p class="benefit-body">Già nelle prime 2-3 settimane: meno gonfiore, sonno migliore, più lucidità. La bilancia è solo uno degli indicatori — e spesso non il più importante.</p>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-head">
+        <span class="benefit-icon">🍕</span>
+        <span class="benefit-title">Pizza? Sì. Sensi di colpa? No.</span>
+      </div>
+      <p class="benefit-body">La pizza del sabato non è uno sgarro. È parte del piano. Costruiamo insieme un equilibrio che ti fa stare bene senza sentirti sempre a dieta.</p>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-head">
+        <span class="benefit-icon">💪</span>
+        <span class="benefit-title">Performance migliore in palestra</span>
+      </div>
+      <p class="benefit-body">Se ti alleni, il piano sarà calibrato sui tuoi allenamenti. Recupero, energia e composizione corporea — tutto ottimizzato per i tuoi obiettivi sportivi.</p>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-head">
+        <span class="benefit-icon">🧠</span>
+        <span class="benefit-title">Rapporto sereno con il cibo</span>
+      </div>
+      <p class="benefit-body">Smetti di pensare al cibo come nemico. Impara a mangiare con consapevolezza, senza ossessioni e senza quel ciclo infinito di dieta-sgarro-colpa.</p>
+    </div>
+    <div class="benefit-card reveal">
+      <div class="benefit-head">
+        <span class="benefit-icon">📱</span>
+        <span class="benefit-title">Non sei mai solo nel percorso</span>
+      </div>
+      <p class="benefit-body">Supporto WhatsApp diretto con me. Hai un dubbio a pranzo? Mi scrivi. Il percorso è tuo, ma non lo fai da solo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATION -->
+<section id="transform" class="sec">
+  <span class="sec-label reveal" style="color:var(--warm)">Il cambiamento reale</span>
+  <h2 class="sec-title reveal">PRIMA E<br>DOPO IL METODO</h2>
+  <div class="before-after reveal">
+    <div class="ba-col ba-before">
+      <span class="ba-label">Prima</span>
+      <div class="ba-list">
+        <div class="ba-item"><span class="ba-item-icon">❌</span><span>Diete rigide che non reggi</span></div>
+        <div class="ba-item"><span class="ba-item-icon">❌</span><span>Sensi di colpa continui</span></div>
+        <div class="ba-item"><span class="ba-item-icon">❌</span><span>Peso yo-yo</span></div>
+        <div class="ba-item"><span class="ba-item-icon">❌</span><span>Stanco e gonfiore</span></div>
+        <div class="ba-item"><span class="ba-item-icon">❌</span><span>Rinunce inutili</span></div>
+      </div>
+    </div>
+    <div class="ba-col ba-after">
+      <span class="ba-label">Dopo</span>
+      <div class="ba-list">
+        <div class="ba-item"><span class="ba-item-icon">✅</span><span>Piano che ti piace</span></div>
+        <div class="ba-item"><span class="ba-item-icon">✅</span><span>Zero sensi di colpa</span></div>
+        <div class="ba-item"><span class="ba-item-icon">✅</span><span>Risultati stabili</span></div>
+        <div class="ba-item"><span class="ba-item-icon">✅</span><span>Energia e leggerezza</span></div>
+        <div class="ba-item"><span class="ba-item-icon">✅</span><span>Mangi quello che ami</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="transform-quote reveal">
+    <p>"La tua salute non è un numero sulla bilancia. È la libertà di non pensarci più."</p>
+    <span>— Jacopo Marenco</span>
+  </div>
+</section>
+
+<!-- WHO -->
+<section id="who" class="sec">
+  <span class="sec-label reveal">Chi sono</span>
+  <h2 class="sec-title reveal">LA TUA<br>GUIDA SONO IO</h2>
+  <div class="who-photo-wrap reveal">
+    <img class="who-photo" src="/mnt/user-data/uploads/IMG_7749.png" alt="Dott. Jacopo Marenco">
+    <div class="who-photo-caption">
+      <p>"Sì, questa è scienza. Non uno sgarro."</p>
+      <span>Mi alleno, mangio bene e vivo la stessa vita che vivi tu.</span>
+    </div>
+  </div>
+  <p class="who-text reveal">Sono <strong>Jacopo Marenco</strong>, biologo nutrizionista e docente di nutrizione. Ma soprattutto sono una persona che si allena, che ama mangiare bene e che vive le stesse sfide che vivi tu ogni giorno.</p>
+  <p class="who-text reveal">So cosa significa trovare il compromesso tra lavoro, palestra e una cena fuori con gli amici. Per questo il mio approccio <strong>non nasce da un libro</strong> — nasce dalla vita reale.</p>
+  <p class="who-text reveal" style="margin-bottom:28px">Non ti darò la dieta perfetta. Ti darò <strong style="color:var(--green-bright)">quella che funziona per te</strong>.</p>
+  <div class="who-creds">
+    <div class="cred-row reveal">
+      <span class="cred-icon">🎓</span>
+      <div><div class="cred-title">Laurea + Magistrale LM-61</div><div class="cred-sub">Scienze della Nutrizione Umana · UniTorino</div></div>
+    </div>
+    <div class="cred-row reveal">
+      <span class="cred-icon">🏛️</span>
+      <div><div class="cred-title">Ordine dei Biologi</div><div class="cred-sub">Piemonte, Liguria, Valle d'Aosta · PLA_A4439</div></div>
+    </div>
+    <div class="cred-row reveal">
+      <span class="cred-icon">📚</span>
+      <div><div class="cred-title">Docente di Nutrizione</div><div class="cred-sub">Scuola Secondaria</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section id="method" class="sec">
+  <span class="sec-label reveal" style="color:var(--warm)">Il metodo</span>
+  <h2 class="sec-title reveal">COME<br>FUNZIONA</h2>
+  <p class="sec-sub reveal">Tre pilastri. Un obiettivo: risultati che durano nel tempo — non tre settimane.</p>
+  <div class="method-steps">
+    <div class="method-step reveal">
+      <span class="step-num">01</span>
+      <div class="step-content">
+        <div class="step-title">🍽️ Niente diete impossibili</div>
+        <p class="step-body">Creo piani che includono i cibi che ami, con un equilibrio reale. Perché se non è sostenibile, non funziona — e basta.</p>
+      </div>
+    </div>
+    <div class="method-step reveal">
+      <span class="step-num">02</span>
+      <div class="step-content">
+        <div class="step-title">🛡️ Compromessi intelligenti</div>
+        <p class="step-body">La pizza del sabato non è uno sgarro. È parte del piano. Lavoriamo insieme per trovare il tuo equilibrio, senza sensi di colpa.</p>
+      </div>
+    </div>
+    <div class="method-step reveal">
+      <span class="step-num">03</span>
+      <div class="step-content">
+        <div class="step-title">🧠 Mente e corpo, stesso piano</div>
+        <p class="step-body">Un'alimentazione che ti stressa non è sana. Il rapporto con il cibo è anche psicologico — e lo trattiamo insieme.</p>
+      </div>
+    </div>
+  </div>
+  <div class="method-cta-box reveal">
+    <h3>INIZIA CON UNA CALL GRATUITA</h3>
+    <p>20 minuti per capire dove sei e dove vuoi arrivare. Senza impegno, senza pressione.</p>
+    <a class="btn-wa-hero" href="https://wa.me/message/JMFTINSRBS3XP1?text=Buongiorno%20Jacopo%2C%20vorrei%20prenotare%20una%20call%20gratuita%20con%20te%20per%20spiegarti%20i%20miei%20obiettivi" target="_blank">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      Scrivimi ora su WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec">
+  <span class="sec-label reveal">Hai dubbi?</span>
+  <h2 class="sec-title reveal">DOMANDE<br>ONESTE</h2>
+  <p class="sec-sub reveal">Le paure che tutti hanno prima di iniziare. Affrontiamole insieme.</p>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">Dovrò rinunciare alla pizza? 🍕 <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="faq-a">No. La pizza può far parte del tuo piano. Il segreto non è eliminare i cibi che ami, ma imparare a gestirli in modo intelligente. Se un piano alimentare ti vieta la pizza, non è un piano — è una punizione.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">Ho già fallito con altre diete. Perché questa volta sarà diverso? <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="faq-a">Non hai fallito tu. Ha fallito l'approccio. Le diete restrittive sono fatte per fallire. Il mio metodo parte dai tuoi gusti e dalla tua routine — costruiamo qualcosa che puoi davvero mantenere, passo dopo passo.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">Non ho tempo per cucinare. Come faccio? <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="faq-a">Capisco, e proprio per questo creo piani realistici. Niente ricette da chef stellato: piatti semplici, veloci, con ingredienti del supermercato. Se non hai tempo, il piano si adatta a te — non il contrario.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">Quanto tempo per vedere i risultati? <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="faq-a">La maggior parte delle persone nota cambiamenti già nelle prime 2-3 settimane: più energia, meno gonfiore, sonno migliore. I risultati duraturi arrivano con la costanza, non con la fretta.</div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q" onclick="toggleFaq(this)">Mi alleno. Posso fare un percorso con te? <svg class="faq-arr" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+      <div class="faq-a">Assolutamente sì — è il mio terreno preferito. Mi alleno anch'io e so cosa significa conciliare nutrizione e performance. Palestra, corsa o sport di squadra: il piano sarà calibrato sui tuoi allenamenti.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section id="finalcta">
+  <div class="finalcta-inner">
+    <div class="finalcta-label reveal">Inizia oggi</div>
+    <h2 class="finalcta-title reveal">IL PRIMO<br>PASSO È<br><span>GRATUITO.</span></h2>
+    <p class="finalcta-sub reveal">Una call di 20 minuti. Parliamo del tuo obiettivo, capiamo cosa ti ha bloccato finora e vediamo se possiamo lavorare insieme.</p>
+    <div class="cta-card reveal">
+      <div class="cta-free-badge">✨ Gratuita · Zero impegno</div>
+      <h2>CALL CONOSCITIVA</h2>
+      <p class="cta-duration">20–25 min · WhatsApp o Telefono</p>
+      <p class="cta-desc">Parliamo di te, dei tuoi obiettivi e di cosa ti ha bloccato fino ad ora. Nessuna vendita forzata — solo una conversazione onesta.</p>
+      <a class="btn-wa-big" href="https://wa.me/message/JMFTINSRBS3XP1?text=Buongiorno%20Jacopo%2C%20vorrei%20prenotare%20una%20call%20gratuita%20con%20te%20per%20spiegarti%20i%20miei%20obiettivi" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Scrivimi su WhatsApp ora
+      </a>
+      <p class="wa-note">Il messaggio è già scritto — invii in un click 👆</p>
+    </div>
+    <div class="location-note reveal">📍 Studio Aire · Corso Garibaldi 50, Sanremo</div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section id="quote">
+  <div class="quote-text">"La tua salute non è un numero sulla bilancia. È la libertà di non pensarci più."</div>
+  <div class="quote-attr">— Jacopo Marenco · Biologo Nutrizionista</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">DOTT. JACOPO MARENCO</div>
+  <div class="footer-reg">Biologo Nutrizionista iscritto all'Ordine dei Biologi<br>Piemonte, Liguria e Valle d'Aosta · N. PLA_A4439</div>
+  <div class="footer-links">
+    <a href="mailto:dott.jacopomarenco@gmail.com">dott.jacopomarenco@gmail.com</a>
+    <a href="tel:+393514983231">+39 351 498 3231</a>
+    <a href="https://instagram.com/dott.jacopomarenco" target="_blank">@dott.jacopomarenco</a>
+  </div>
+</footer>
+
+<!-- FLOATING WA -->
+<a class="wa-float" href="https://wa.me/message/JMFTINSRBS3XP1?text=Buongiorno%20Jacopo%2C%20vorrei%20prenotare%20una%20call%20gratuita%20con%20te%20per%20spiegarti%20i%20miei%20obiettivi" target="_blank">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); observer.unobserve(e.target); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
